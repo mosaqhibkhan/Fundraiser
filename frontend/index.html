@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Intern Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Fundraising Intern Portal</h2>
+    <input type="text" id="name" placeholder="Enter your name" />
+    <button onclick="login()">Login</button>
+  </div>
+
+  <script>
+    function login() {
+      const name = document.getElementById("name").value;
+      localStorage.setItem("internName", name);
+      window.location.href = "dashboard.html";
+    }
+  </script>
+</body>
+</html>

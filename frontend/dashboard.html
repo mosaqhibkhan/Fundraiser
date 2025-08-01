@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Intern Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Welcome, <span id="intern-name"></span>!</h2>
+    <p>Referral Code: <span id="referral-code"></span></p>
+    <p>Donations Raised: ₹<span id="donations"></span></p>
+  </div>
+
+  <script>
+    const name = localStorage.getItem("internName");
+
+    fetch(`http://localhost:5000/api/intern?name=${encodeURIComponent(name)}`)
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('intern-name').textContent = data.name;
+        document.getElementById('referral-code').textContent = data.referralCode;
+        document.getElementById('donations').textContent = data.donationsRaised;
+      });
+  </script>
+</body>
+</html>
